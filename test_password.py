@@ -17,6 +17,10 @@ class TestUser(unittest.TestCase):
         self.assertTrue(self.new_user.email,"gnyutu@gmail.com")
 
     def test_save_user(self):
+        '''
+        test_save_user test case to test if the users object is saved into
+         the users list
+        '''
         self.new_user.save_user()
         self.assertTrue(len(User.users_list),1)
 
@@ -36,8 +40,21 @@ class TestCredentials(unittest.TestCase):
         self.assertTrue(self.new_credentials.password,"frozen56")
 
     def test_save_credentials(self):
+        '''
+        test_save_credentials test case to test if the credentials object is saved into
+         the credentials list
+        '''
         self.new_credentials.save_credentials()
         self.assertTrue(len(Credentials.credentials_list),1)
+
+    def test_save_multiple_credentials(self):
+        '''
+        test_save_multiple_credentials to check if we can save several credential objects to our credentials_list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Chegg","johnbrown","12jo43")
+        test_credentials.save_credentials()
+        self.assertTrue(len(Credentials.credentials_list),2)
 
 if __name__ == '__main__':
     unittest.main()
