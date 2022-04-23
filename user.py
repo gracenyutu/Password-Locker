@@ -15,6 +15,9 @@ class User:
         self.email = email
 
     def save_user(self):
+        '''
+        save_user method saves user objects into users_list
+        '''
         User.users_list.append(self)
 
 class Credentials:
@@ -31,4 +34,7 @@ class Credentials:
         self.site_name = site_name
 
     def save_credentials(self):
+        '''
+        save_credentials method saves credentials objects into credentials_list
+        '''
         Credentials.credentials_list.append(self)

@@ -56,5 +56,16 @@ class TestCredentials(unittest.TestCase):
         test_credentials.save_credentials()
         self.assertTrue(len(Credentials.credentials_list),2)
 
+    def test_delete_credentials(self):
+        '''
+        test_delete_credentials to test if we can delete credentials account from credentials_list.
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("hackerrank","adidas", "8*9%ad")
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials()
+        self.assertTrue(len(Credentials.credentials_list),1)
+
 if __name__ == '__main__':
     unittest.main()
