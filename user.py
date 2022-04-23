@@ -1,3 +1,4 @@
+from distutils.command.build_scripts import first_line_re
 import pyperclip
 
 class User:
@@ -5,16 +6,19 @@ class User:
     Class to create ser accounts and save their information
     '''
     users_list = []
-    def __init__(self,account):
+    def __init__(self,first_name, last_name, email):
         '''
         Method to define the properties each user object will hold.
         '''
-        self.account = account
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
 
     def save_user(self):
         User.users_list.append(self)
 
 class Credentials:
-    def __init__(self,username, password):
+    def __init__(self,site_name,username, password):
         self.username = username
-        self.password = password  
+        self.password = password
+        self.site_name = site_name
