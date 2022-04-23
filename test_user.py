@@ -97,5 +97,18 @@ class TestCredentials(unittest.TestCase):
 
         self.assertTrue(credentials_exists)
 
+    def test_find_credentials_by_site_name(self):
+        '''
+        test to check if we can find the credentials by site_name and display information
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("tiktok", "celeb", "tok@#en")
+        test_credentials.save_credentials()
+
+        found_credentials = Credentials.find_by_site_name("tiktok")
+
+        self.assertTrue(found_credentials.site_name,test_credentials.site_name)
+
 if __name__ == '__main__':
     unittest.main()

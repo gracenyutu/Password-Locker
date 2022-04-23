@@ -46,18 +46,7 @@ class Credentials:
         '''
         Credentials.credentials_list.append(self)
 
-    def test_find_credentials_by_site_name(self):
-        '''
-        test to check if we can find the credentials by site_name and display information
-        '''
-
-        self.new_credentials.save_credentials()
-        test_credentials = Credentials("tiktok", "celeb", "tok@#en")
-        test_credentials.save_credentials()
-
-        found_credentials = Credentials.find_by_site_name("tiktok")
-
-        self.assertEqual(found_credentials.site_name,test_credentials.site_name)
+    
     def delete_credentials(self):
         '''
         delete_credentials method deletes saved credentials
@@ -91,3 +80,13 @@ class Credentials:
                     return True
 
         return False
+
+    @classmethod
+    def find_by_site_name(cls,site_name):
+        '''
+        Method that takes in a site_name and returns the credentials that match it.
+        '''
+
+        for credentials in cls.credentials_list:
+            if credentials.site_name == site_name:
+                return credentials
