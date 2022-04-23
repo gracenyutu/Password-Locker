@@ -24,6 +24,17 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertTrue(len(User.users_list),1)
 
+    def test_delete_users(self):
+        '''
+        test_delete_users to test if we can delete credentials account from credentials_list.
+        '''
+        self.new_users.save_users()
+        test_users = User("bob", "dred", "bobdred@gmail.com")
+        test_users.save_users()
+
+        self.new_users.delete_users()
+        self.assertTrue(len(User.users_list),1)
+
 class TestCredentials(unittest.TestCase):
     def setUp(self):
         '''
