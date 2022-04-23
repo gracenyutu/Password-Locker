@@ -6,13 +6,15 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each user test cases.
         '''
-        self.new_user = User("Twitter")
+        self.new_user = User("grace", "nyutu", "gnyutu@gmail.com")
     
     def test_init(self):
         '''
         test_init test case to test if the object is initialised properly
         '''
-        self.assertTrue(self.new_user.account,"Twitter")
+        self.assertTrue(self.new_user.first_name,"grace")
+        self.assertTrue(self.new_user.last_name,"nyutu")
+        self.assertTrue(self.new_user.email,"gnyutu@gmail.com")
 
     def test_save_user(self):
         self.new_user.save_user()
@@ -23,18 +25,19 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each credentials test cases.
         '''
-        self.new_credentials = Credentials("gracenyutu", "frozen56")
+        self.new_credentials = Credentials("twitter", "gracenyutu", "frozen56")
     
     def test_init(self):
         '''
         test_init test case to test if the object is initialised properly
         '''
+        self.assertTrue(self.new_credentials.site_name,"twitter")
         self.assertTrue(self.new_credentials.username,"gracenyutu")
         self.assertTrue(self.new_credentials.password,"frozen56")
 
     def test_save_credentials(self):
-        self.new_user.save_credential()
-        self.assertTrue(len(User.credentials_list),1)
+        self.new_credentials.save_credentials()
+        self.assertTrue(len(Credentials.credentials_list),1)
 
 if __name__ == '__main__':
     unittest.main()

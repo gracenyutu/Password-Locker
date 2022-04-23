@@ -3,7 +3,7 @@ import pyperclip
 
 class User:
     '''
-    Class to create ser accounts and save their information
+    Class to create user accounts and save their information
     '''
     users_list = []
     def __init__(self,first_name, last_name, email):
@@ -18,7 +18,17 @@ class User:
         User.users_list.append(self)
 
 class Credentials:
+    '''
+    Class to create credentials accounts and save their information
+    '''
+    credentials_list = []
     def __init__(self,site_name,username, password):
+        '''
+        Method to define the properties each credentials object will hold.
+        '''
         self.username = username
         self.password = password
         self.site_name = site_name
+
+    def save_credentials(self):
+        Credentials.credentials_list.append(self)
