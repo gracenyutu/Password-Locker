@@ -20,6 +20,12 @@ class User:
         '''
         User.users_list.append(self)
 
+    def delete_user(self):
+        '''
+        delete_user method deletes a saved user
+        '''
+        User.users_list.remove(self)
+
 class Credentials:
     '''
     Class to create credentials accounts and save their information
@@ -38,3 +44,9 @@ class Credentials:
         save_credentials method saves credentials objects into credentials_list
         '''
         Credentials.credentials_list.append(self)
+
+    def delete_credentials(self):
+        '''
+        delete_credentials method deletes a saved user
+        '''
+        Credentials.credentials_list.remove(self)
