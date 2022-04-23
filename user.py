@@ -50,3 +50,9 @@ class Credentials:
         delete_credentials method deletes a saved user
         '''
         Credentials.credentials_list.remove(self)
+
+    @classmethod
+    def view_credentials(cls):
+        credentials_list = []
+        for credential in credentials_list:
+            return credential
