@@ -84,5 +84,18 @@ class TestCredentials(unittest.TestCase):
         '''
         self.assertTrue(Credentials.display_credentials(),Credentials.credentials_list)
 
+    def test_credentials_exists(self):
+        '''
+        test to check if a credential exists on credentials_list.
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("facebook","cleopatra","cleo909")
+        test_credentials.save_credentials()
+
+        credentials_exists = Credentials.credentials_exist("cleopatra")
+
+        self.assertTrue(credentials_exists)
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,6 @@
 from distutils.command.build_scripts import first_line_re
 import pyperclip
+import random
 
 class User:
     '''
@@ -57,3 +58,14 @@ class Credentials:
         method that returns the credentials list
         '''
         return cls.credentials_list
+
+    @classmethod
+    def credentials_exist(cls,username):
+        '''
+        Method that checks if a credentials exists from the credentials list.
+        '''
+        for credentials in cls.credentials_list:
+            if credentials.username == username:
+                    return True
+
+        return False
