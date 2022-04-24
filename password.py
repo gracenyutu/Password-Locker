@@ -1,4 +1,5 @@
 import email
+from typing import Any
 from user import User, Credentials
 import pyperclip
 
@@ -65,6 +66,20 @@ def copy_credential(site_name):
     '''
     return Credentials.find_by_site_name(site_name)
 
+def verify_user(first_name,password):
+	'''
+	Function that verifies the existance of the user before creating credentials
+	'''
+	checking_user = Credentials.check_user(first_name,password)
+	return checking_user
+
+def generate_password():
+	'''
+	Function to generate a password automatically
+	'''
+	gen_pass = Credentials.generate_password()
+	return gen_pass
+
 def main():
     print(' ')
     print("Hello! Welcome to Password Locker.")
@@ -84,7 +99,8 @@ def main():
                 first_name = input('Enter your first name - ').strip()
                 last_name = input('Enter your last name - ').strip()
                 email = input('Enter your email - ').strip()
-                save_users(create_user(first_name,last_name,email))
+                username = input('Enter your preferred username - ').strip()
+                save_users(create_user(first_name,last_name,email,username))
                 print(" ")
                 print(f'New Account Created for: {first_name} {last_name} with {email} using username: {username}')
 

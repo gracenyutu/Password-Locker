@@ -1,6 +1,7 @@
 from distutils.command.build_scripts import first_line_re
 import pyperclip
 import random
+import string
 
 class User:
     '''
@@ -63,6 +64,13 @@ class Credentials:
         Credentials.copy_email("0712345678")
 
         self.assertEqual(self.new_contact.email,pyperclip.paste())
+
+    def generate_password(size=8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+            '''
+            Function to generate an 8 character password for a credential
+            '''
+            gen_pass=''.join(random.choice(char) for _ in range(size))
+            return gen_pass
 
     @classmethod
     def display_credentials(cls):
