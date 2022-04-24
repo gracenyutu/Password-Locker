@@ -2,11 +2,11 @@ import email
 from user import User, Credentials
 import pyperclip
 
-def create_user(first_name,last_name,email):
+def create_user(first_name,last_name,email, username):
     '''
     Function to create new user
     '''
-    new_user = User(first_name, last_name, email)
+    new_user = User(first_name, last_name, email, username)
     return new_user
 
 def create_credentials(site_name, username, password):
@@ -53,11 +53,11 @@ def check_existing_credentials(username):
     return Credentials.credentials_exist(username)
 
 
-def find_credential(number):
+def find_credential(site_name):
     '''
-    Function that finds a contact by number and returns the contact
+    Function that finds credentials by using the site_name
     '''
-    return Credentials.find_by_site_name(number)
+    return Credentials.find_by_site_name(site_name)
 
 def copy_credential(site_name):
     '''
