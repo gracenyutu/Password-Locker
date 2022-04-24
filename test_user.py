@@ -1,6 +1,7 @@
 import unittest
 from user import User,Credentials
 
+
 class TestUser(unittest.TestCase):
     def setUp(self):
         '''
