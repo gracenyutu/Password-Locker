@@ -8,14 +8,14 @@ class User:
     Class to create user accounts and save their information
     '''
     users_list = []
-    def __init__(self,first_name, last_name, email, username):
+    def __init__(self,first_name, last_name, email, password):
         '''
         Method to define the properties each user object will hold.
         '''
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
-        self.username = username
+        self.password = password
 
     def save_user(self):
         '''
@@ -34,6 +34,17 @@ class Credentials:
     Class to create credentials accounts and save their information
     '''
     credentials_list = []
+    @classmethod
+    def check_user(cls,first_name,password):
+            '''
+            Method that checks if the name and password entered match entries in the users_list
+            '''
+            current_user = ''
+            for user in User.users_list:
+                if (user.first_name == first_name and user.password == password):
+                    current_user = user.first_name
+            return current_user
+
     def __init__(self,site_name,username, password):
         '''
         Method to define the properties each credentials object will hold.
