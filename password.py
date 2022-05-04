@@ -73,12 +73,6 @@ def verify_user(username,password):
 	checking_user = Credentials.check_user(username,password)
 	return checking_user
 
-def generate_password():
-	'''
-	Function to generate a password automatically
-	'''
-	gen_pass = Credentials.generate_password()
-	return gen_pass
 
 def main():
     print(' ')
